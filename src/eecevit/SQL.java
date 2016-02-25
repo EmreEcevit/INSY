@@ -31,7 +31,7 @@ public class SQL {
 				 * 		Connection 		-->  	eine Verbindung zu der Datenbank wird aufgebaut
 				 * 		Statement 		-->		ist ein Befehl um weitere Informationen zu senden
 				 * 		executeQuery	-->		hier wird einfach der SQL Befehl eingegegeben und im rs abgespeichert
-				 * 
+				 * a
 				 */
 				
 				){
