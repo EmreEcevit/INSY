@@ -1,4 +1,4 @@
-package eecevit;
+package echo;
 
 public class connect {
 

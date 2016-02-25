@@ -1,13 +1,8 @@
-package eecevit;
+package echo;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream.GetField;
-import java.io.PrintStream;
 import java.util.Properties;
-import java.util.Set;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;

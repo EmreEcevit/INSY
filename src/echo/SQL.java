@@ -1,4 +1,4 @@
-package eecevit;
+package echo;
 
 import java.sql.*;
 import org.postgresql.ds.PGSimpleDataSource;
