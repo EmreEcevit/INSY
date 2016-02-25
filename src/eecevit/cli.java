@@ -18,21 +18,34 @@ import org.apache.commons.cli.ParseException;
 public class cli {
 	
 	public static void main(String[]args){
-		
+
+		/**
+		 * Mittels der Klasse Options wird die Möglichkeit erstellt
+		 * verschiedene Kürzel zu generieren welche dann aus den
+		 * Programmargumenten herausgelesen werden kann.
+		 */
 		Options options = new Options();
-		//test
 		options.addOption("u",true,"Benutzername");
 		options.addOption("pw",true,"Passwort");
 		options.addOption("d",true, "Datenbank");
 		options.addOption("s",true,"IP-Adresse");
 		options.addOption("p",true,"Port");
-		
+
+		/**
+		 * Es wird mit der Klasse Properties eine angesagt,
+		 * dass es ein .properties file exestiert
+		 *
+		 * mit dem FileInputStream wird dann der
+		 * Inhalt von dem .properties file gelesen
+		 */
 		Properties defaultProps = new Properties();
 		FileInputStream in;
+
 		try {
-		
-			in = new FileInputStream("src/properties.properties");
-			defaultProps.load(in);
+
+
+			in = new FileInputStream("src/properties.properties");		//hier wird mit dem FileInputStream eine Verbindung zu dem .properties file aufgebaut
+			defaultProps.load(in);										//defaultProps bekommt die Information wo sich das .properties file befindet und bekommt den Inhalt
 			
 						
 			in.close();
@@ -41,10 +54,17 @@ public class cli {
 			e1.printStackTrace();
 		}
 		
-		CommandLineParser parser = new DefaultParser();
+		CommandLineParser parser = new DefaultParser();					//Die Argumente welche eingegebn werden kann mithilfe dieses Paresers abgelesen werden
 		try {
-			CommandLine cmd =  parser.parse( options, args);
-			
+			CommandLine cmd =  parser.parse( options, args);			//
+
+			/**
+			 * Es folgen nun mehrere Abfragen
+			 * Als erstes wird ueberprueft, ob sich eines dieser Argumente
+			 * schon eingegeben wurd.
+			 * Wenn dies nicht der Fall ist, wird aus dem .properties file
+			 * ein default wert genommen
+			 */
 			if(cmd.hasOption("u")){
 				SQL.u = cmd.getOptionValue("u");
 			}else{
