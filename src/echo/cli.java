@@ -58,7 +58,7 @@ public class cli {
 			 * Als erstes wird ueberprueft, ob sich eines dieser Argumente
 			 * schon eingegeben wurd.
 			 * Wenn dies nicht der Fall ist, wird aus dem .properties file
-			 * ein default wert genommen
+			 * ein default wert genommen.
 			 */
 			if(cmd.hasOption("u")){
 				SQL.u = cmd.getOptionValue("u");

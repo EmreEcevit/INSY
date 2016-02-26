@@ -9,7 +9,7 @@ public class CRUD {
     private Connection con;
     private PreparedStatement prep;
     private ResultSet res;
-    // create read update delete.
+    // create read update delete..
     PGSimpleDataSource ds = new PGSimpleDataSource();
 
     public void insert(String num, String vname, String nname){

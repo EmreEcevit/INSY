@@ -60,7 +60,7 @@ public class SQL {
 				   }catch(SQLException e){
 					   /*
 					    * es ist wichtig eine Exception einzubauen, da es immer zu Fehlern kommen kann
-					    * und damit es nicht dramatische folgen haben soll wird dieser gefiltert
+					    * und damit es nicht dramatische folgen haben soll wird dieser gefiltert.
 					    */
 					   e.printStackTrace();
 				   }
