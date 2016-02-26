@@ -12,8 +12,10 @@ public class SQL {
 	public static String p;
 	public static String pw;
 	public static String d;
+
 	
 	public void connect(){
+		CRUD crud = new CRUD();
 		/*
 		* Mit PGSimpleDataSource wird ein einfaches Datasource erstellt
 		*
@@ -33,6 +35,7 @@ public class SQL {
 		   try(	Connection con = ds.getConnection();
 					Statement st = con.createStatement();
 					ResultSet rs = st.executeQuery("SELECT * FROM person");
+
 				/*
 				 * 1.) 	Dank der neuen Moeglichkeit die einzelnen Variablen im parameter vom
 				 * 		try eingeben koenen, muss man es am ende von try{...} nicht mehr einzeln
@@ -43,10 +46,13 @@ public class SQL {
 				 * 		executeQuery	-->		hier wird einfach der SQL Befehl eingegegeben und im rs abgespeichert
 				 *
 				 */
-				
 				){
 				   while (rs.next()) { // mit .next() kommt man zu der naechsten Ausgabe
-					   
+
+					   for(int i=0; i<10; i++) {
+						   crud.insert("" + i, "max" + i, "mustermann" + i);
+					   }
+
 					   String wert = rs.getString(2);
 					   System.out.println(wert);
 					  

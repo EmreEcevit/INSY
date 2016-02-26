@@ -89,7 +89,7 @@ public class cli {
 				SQL.d = defaultProps.getProperty("database");
 			}
 			SQL con = new SQL();
-			con.connect();
+ 			con.connect();
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
