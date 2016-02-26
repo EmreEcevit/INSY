@@ -61,7 +61,7 @@ public class SQL {
 
 			   startTime = System.nanoTime();
 
-			   	for(int i=start; i<end; i++)
+			   for(int i=start; i<end; i++)
 					 crud.insert(i, "max" + i, "mustermann" + i,con);
 			   endTime = System.nanoTime();
 			   long insertTime = endTime - startTime;
@@ -84,9 +84,9 @@ public class SQL {
 
 			   crud.select(con);
 
-			   System.out.println("insert Time: "+insertTime/sec);
-			   System.out.println("update Time: "+updateTime/sec);
-			   System.out.println("delete Time: "+deleteTime/sec);
+			   System.out.println("insert Time: "+insertTime/sec+" sekunden");
+			   System.out.println("update Time: "+updateTime/sec+" sekunden");
+			   System.out.println("delete Time: "+deleteTime/sec+" sekunden");
 
 				   }catch(SQLException e){
 					   /*
