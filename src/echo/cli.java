@@ -49,7 +49,7 @@ public class cli {
 			e1.printStackTrace();
 		}
 		
-		CommandLineParser parser = new DefaultParser();					//Die Argumente welche eingegebn werden kann mithilfe dieses Paresers abgelesen werden
+		CommandLineParser parser = new DefaultParser();					//Die Argumente welche eingegebn werden kann mithilfe dieses Parsers abgelesen werden
 		try {
 			CommandLine cmd =  parser.parse( options, args);			//
 
