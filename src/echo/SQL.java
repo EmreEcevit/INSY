@@ -6,12 +6,19 @@ import org.postgresql.ds.PGSimpleDataSource;
 
 
 public class SQL {
-	
+	public long startTime;
+	public long endTime;
+
 	public static  String u;
 	public static String s;
 	public static String p;
 	public static String pw;
 	public static String d;
+
+	public int start;
+	public int end;
+
+
 
 	
 	public void connect(){
@@ -48,12 +55,38 @@ public class SQL {
 				 */
 				){
 
-			   	for(int i=41; i<51; i++)
+				start = 41; // es wird ab dem Wert 41 gestartet da schon 40 Personen in der Datenbank eingetragen sind
+			    end = 10041;
+			   long sec = 1000000000;
+
+			   startTime = System.nanoTime();
+
+			   	for(int i=start; i<end; i++)
 					 crud.insert(i, "max" + i, "mustermann" + i,con);
-			   	crud.select(con);
-			   	for(int i=41;i<71;i++)
+			   endTime = System.nanoTime();
+			   long insertTime = endTime - startTime;
+
+			   crud.select(con);
+
+			   startTime = System.nanoTime();
+			    for(int i=start; i<end; i++)
+			    	crud.update("john"+i, "doe"+i, i,con);
+			   endTime = System.nanoTime();
+			   long updateTime = endTime - startTime;
+
+			    crud.select(con);
+
+			   startTime = System.nanoTime();
+			   	for(int i=start; i<end; i++)
 			   		crud.delete(i,con);
-			   	crud.select(con);
+			   endTime = System.nanoTime();
+			   long deleteTime = endTime - startTime;
+
+			   crud.select(con);
+
+			   System.out.println("insert Time: "+insertTime/sec);
+			   System.out.println("update Time: "+updateTime/sec);
+			   System.out.println("delete Time: "+deleteTime/sec);
 
 				   }catch(SQLException e){
 					   /*
@@ -62,6 +95,7 @@ public class SQL {
 					    */
 					   e.printStackTrace();
 				   }
+
 	}
 }
  

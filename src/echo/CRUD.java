@@ -22,9 +22,6 @@ public class CRUD {
             statement.setString(3, nname);
 
             int rowsInserted = statement.executeUpdate();
-            if (rowsInserted > 0) {
-                System.out.println("a new person was inserted");
-            }
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -33,11 +30,12 @@ public class CRUD {
     public ResultSet select(Connection con) {
         try {
             //String sql = "SELECT * FROM Person";
-            //Statement statement = con.createStatement();
+            Statement statement = con.createStatement();
            // ResultSet result = prep.executeQuery(sql);
 
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM person");
+
 
             int count = 0;
 
@@ -55,19 +53,16 @@ public class CRUD {
         return null;
     }
 
-    public void update(String vname, String nname, String num,Connection con){
+    public void update(String vname, String nname, int num, Connection con){
         try {
             String sql = "UPDATE Person SET vorname=?, nachname=? WHERE nummer=?";
 
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setString(1, vname);
             statement.setString(2, nname);
-            statement.setString(3, num);
+            statement.setInt(3, num);
 
             int rowsUpdated = statement.executeUpdate();
-            if (rowsUpdated > 0) {
-                System.out.println("an existing person was updated");
-            }
         }catch (SQLException e) {
             e.printStackTrace();
         }
@@ -81,9 +76,6 @@ public class CRUD {
             statement.setInt(1, num);
 
             int rowsDeleted = statement.executeUpdate();
-            if (rowsDeleted > 0) {
-                System.out.println("a person was deleted");
-            }
         }catch (SQLException e) {
             e.printStackTrace();
         }
