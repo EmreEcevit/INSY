@@ -15,8 +15,7 @@ public class CRUD {
     /**
      * In der insert() Methode werden 4 Parameter übergeben. Diese sind nummer, vorname , nachname und Connection
      * Die ersten 3 Parameter sind für die Query nötig und der Connection Parameter ist dafür notwendig um die CRUD Methode mit der Klasse SQL zu verbinden.
-     * Die ersten 3 Parameter werden mit der in der Query entsprechenden Reihenfolge ind die sets()übergeben.
-     *
+     * Die ersten 3 Parameter werden mit der in der Query vorkommenden Reihenfolge der Fragezeichen (?) in die sets()übergeben.
      */
     public void insert(int num, String vname, String nname,Connection con){
         try {
@@ -27,7 +26,7 @@ public class CRUD {
             statement.setString(2, vname);
             statement.setString(3, nname);
 
-            int rowsInserted = statement.executeUpdate();
+            statement.executeUpdate();
         }catch(SQLException e){
             e.printStackTrace();
         }
@@ -71,7 +70,7 @@ public class CRUD {
             statement.setString(2, nname);
             statement.setInt(3, num);
 
-            int rowsUpdated = statement.executeUpdate();
+            statement.executeUpdate();
         }catch (SQLException e) {
             e.printStackTrace();
         }
@@ -85,7 +84,7 @@ public class CRUD {
             PreparedStatement statement = con.prepareStatement(sql);
             statement.setInt(1, num);
 
-            int rowsDeleted = statement.executeUpdate();
+            statement.executeUpdate();
         }catch (SQLException e) {
             e.printStackTrace();
         }

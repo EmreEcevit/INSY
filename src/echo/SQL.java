@@ -65,6 +65,7 @@ public class SQL {
 					 crud.insert(i, "max" + i, "mustermann" + i,con);
 			   endTime = System.nanoTime();
 			   System.out.println();
+			   // Die Zeit wird berechnet indem die minimal zeit (startTime) von der maximal zeit (endTime) abgezogen
 			   long insertTime = endTime - startTime;
 
 			   crud.select(con);
@@ -74,6 +75,7 @@ public class SQL {
 			    	crud.update("john"+i, "doe"+i, i,con);
 			   System.out.println();
 			   endTime = System.nanoTime();
+			   // Die Zeit wird berechnet indem die minimal zeit (startTime) von der maximal zeit (endTime) abgezogen
 			   long updateTime = endTime - startTime;
 
 			    crud.select(con);
@@ -83,6 +85,7 @@ public class SQL {
 			   		crud.delete(i,con);
 			   System.out.println();
 			   endTime = System.nanoTime();
+			   // Die Zeit wird berechnet indem die minimal zeit (startTime) von der maximal zeit (endTime) abgezogen
 			   long deleteTime = endTime - startTime;
 
 			   crud.select(con);
