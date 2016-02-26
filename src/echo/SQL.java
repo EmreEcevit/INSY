@@ -47,16 +47,14 @@ public class SQL {
 				 *
 				 */
 				){
-				   while (rs.next()) { // mit .next() kommt man zu der naechsten Ausgabe
 
-					   for(int i=0; i<10; i++) {
-						   crud.insert("" + i, "max" + i, "mustermann" + i);
-					   }
+			   	for(int i=41; i<51; i++)
+					 crud.insert(i, "max" + i, "mustermann" + i,con);
+			   	crud.select(con);
+			   	for(int i=41;i<71;i++)
+			   		crud.delete(i,con);
+			   	crud.select(con);
 
-					   String wert = rs.getString(2);
-					   System.out.println(wert);
-					  
-				   } 
 				   }catch(SQLException e){
 					   /*
 					    * es ist wichtig eine Exception einzubauen, da es immer zu Fehlern kommen kann
